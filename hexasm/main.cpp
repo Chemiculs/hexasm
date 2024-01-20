@@ -2,7 +2,7 @@
 
 
 [STAThreadAttribute]
-int main() {
+int __clrcall main() {
 
 
 	System::Windows::Forms::Application::EnableVisualStyles();

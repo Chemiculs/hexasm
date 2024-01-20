@@ -61,7 +61,15 @@ namespace hexasm {
 			private: System::Windows::Forms::MenuItem^ find_m;
 			private: System::Windows::Forms::MenuItem^ find_n_m;
 			private: System::Windows::Forms::MenuItem^ find_p_m;
-			private: System::Windows::Forms::MenuItem^ menuItem13;
+		private: System::Windows::Forms::MenuItem^ undo_m;
+		private: System::Windows::Forms::MenuItem^ redo_m;
+		private: System::Windows::Forms::MenuItem^ menuItem14;
+		private: System::Windows::Forms::MenuItem^ menuItem15;
+		private: System::Windows::Forms::MenuItem^ undo_m_ctx;
+		private: System::Windows::Forms::MenuItem^ redo_m_ctx;
+
+
+		private: System::Windows::Forms::MenuItem^ menuItem13;
 
 		public:
 
@@ -309,27 +317,27 @@ namespace hexasm {
 			void InitializeComponent(void)
 			{
 				this->components = (gcnew System::ComponentModel::Container());
-				System::Windows::Forms::ListViewItem^ listViewItem1 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
+				System::Windows::Forms::ListViewItem^ listViewItem7 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
 					L"MD5",
 						L"null"
 				}, -1));
-				System::Windows::Forms::ListViewItem^ listViewItem2 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
+				System::Windows::Forms::ListViewItem^ listViewItem8 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
 					L"SHA1",
 						L"null"
 				}, -1));
-				System::Windows::Forms::ListViewItem^ listViewItem3 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
+				System::Windows::Forms::ListViewItem^ listViewItem9 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
 					L"SHA256",
 						L"null"
 				}, -1));
-				System::Windows::Forms::ListViewItem^ listViewItem4 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
+				System::Windows::Forms::ListViewItem^ listViewItem10 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
 					L"SHA384",
 						L"null"
 				}, -1));
-				System::Windows::Forms::ListViewItem^ listViewItem5 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
+				System::Windows::Forms::ListViewItem^ listViewItem11 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
 					L"SHA512",
 						L"null"
 				}, -1));
-				System::Windows::Forms::ListViewItem^ listViewItem6 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
+				System::Windows::Forms::ListViewItem^ listViewItem12 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
 					L"RIPEMD160",
 						L"null"
 				}, -1));
@@ -348,6 +356,9 @@ namespace hexasm {
 				this->menuItem8 = (gcnew System::Windows::Forms::MenuItem());
 				this->exit_m = (gcnew System::Windows::Forms::MenuItem());
 				this->edit_m = (gcnew System::Windows::Forms::MenuItem());
+				this->undo_m = (gcnew System::Windows::Forms::MenuItem());
+				this->redo_m = (gcnew System::Windows::Forms::MenuItem());
+				this->menuItem14 = (gcnew System::Windows::Forms::MenuItem());
 				this->jump_m = (gcnew System::Windows::Forms::MenuItem());
 				this->jmp_selection_m = (gcnew System::Windows::Forms::MenuItem());
 				this->word_m = (gcnew System::Windows::Forms::MenuItem());
@@ -456,6 +467,9 @@ namespace hexasm {
 				this->toolBarButton5 = (gcnew System::Windows::Forms::ToolBarButton());
 				this->tb_btn_insert = (gcnew System::Windows::Forms::ToolBarButton());
 				this->main_document_context_menu = (gcnew System::Windows::Forms::ContextMenu());
+				this->undo_m_ctx = (gcnew System::Windows::Forms::MenuItem());
+				this->redo_m_ctx = (gcnew System::Windows::Forms::MenuItem());
+				this->menuItem15 = (gcnew System::Windows::Forms::MenuItem());
 				this->jmp_m_ctx = (gcnew System::Windows::Forms::MenuItem());
 				this->jmp_selection_ctx = (gcnew System::Windows::Forms::MenuItem());
 				this->word_ctx = (gcnew System::Windows::Forms::MenuItem());
@@ -571,12 +585,14 @@ namespace hexasm {
 				// new_m
 				// 
 				this->new_m->Index = 0;
+				this->new_m->Shortcut = System::Windows::Forms::Shortcut::CtrlN;
 				this->new_m->Text = L"&New...";
 				this->new_m->Click += gcnew System::EventHandler(this, &winmain::new_m_Click);
 				// 
 				// open_m
 				// 
 				this->open_m->Index = 1;
+				this->open_m->Shortcut = System::Windows::Forms::Shortcut::CtrlO;
 				this->open_m->Text = L"&Open..";
 				this->open_m->Click += gcnew System::EventHandler(this, &winmain::open_m_Click);
 				// 
@@ -588,6 +604,7 @@ namespace hexasm {
 				// save_m
 				// 
 				this->save_m->Index = 3;
+				this->save_m->Shortcut = System::Windows::Forms::Shortcut::CtrlS;
 				this->save_m->Text = L"&Save";
 				this->save_m->Click += gcnew System::EventHandler(this, &winmain::save_m_Click);
 				// 
@@ -611,6 +628,7 @@ namespace hexasm {
 				// close_m
 				// 
 				this->close_m->Index = 7;
+				this->close_m->Shortcut = System::Windows::Forms::Shortcut::CtrlF4;
 				this->close_m->Text = L"&Close";
 				this->close_m->Click += gcnew System::EventHandler(this, &winmain::close_m_Click);
 				// 
@@ -634,23 +652,44 @@ namespace hexasm {
 				// edit_m
 				// 
 				this->edit_m->Index = 1;
-				this->edit_m->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(16) {
-					this->jump_m, this->jmp_selection_m,
-						this->menuItem3, this->select_all_m, this->select_block_m, this->menuItem5, this->copy_string_m, this->copy_hex_m, this->copy_offset_m,
-						this->copyas_m, this->menuItem9, this->cut_hex_m, this->cut_string_m, this->seperator_m, this->paste_string_m, this->paste_hex_m
+				this->edit_m->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(19) {
+					this->undo_m, this->redo_m,
+						this->menuItem14, this->jump_m, this->jmp_selection_m, this->menuItem3, this->select_all_m, this->select_block_m, this->menuItem5,
+						this->copy_string_m, this->copy_hex_m, this->copy_offset_m, this->copyas_m, this->menuItem9, this->cut_hex_m, this->cut_string_m,
+						this->seperator_m, this->paste_string_m, this->paste_hex_m
 				});
 				this->edit_m->Text = L"&Edit";
 				this->edit_m->Popup += gcnew System::EventHandler(this, &winmain::edit_m_Click);
 				// 
+				// undo_m
+				// 
+				this->undo_m->Index = 0;
+				this->undo_m->Shortcut = System::Windows::Forms::Shortcut::CtrlZ;
+				this->undo_m->Text = L"&Undo";
+				this->undo_m->Click += gcnew System::EventHandler(this, &winmain::undo_m_Click);
+				// 
+				// redo_m
+				// 
+				this->redo_m->Index = 1;
+				this->redo_m->Shortcut = System::Windows::Forms::Shortcut::CtrlY;
+				this->redo_m->Text = L"&Redo";
+				this->redo_m->Click += gcnew System::EventHandler(this, &winmain::redo_m_Click);
+				// 
+				// menuItem14
+				// 
+				this->menuItem14->Index = 2;
+				this->menuItem14->Text = L"-";
+				// 
 				// jump_m
 				// 
-				this->jump_m->Index = 0;
+				this->jump_m->Index = 3;
+				this->jump_m->Shortcut = System::Windows::Forms::Shortcut::CtrlJ;
 				this->jump_m->Text = L"&Jump To Address...";
 				this->jump_m->Click += gcnew System::EventHandler(this, &winmain::tslbl_offset_DoubleClick);
 				// 
 				// jmp_selection_m
 				// 
-				this->jmp_selection_m->Index = 1;
+				this->jmp_selection_m->Index = 4;
 				this->jmp_selection_m->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(3) {
 					this->word_m, this->dword_m,
 						this->qword_m
@@ -678,47 +717,50 @@ namespace hexasm {
 				// 
 				// menuItem3
 				// 
-				this->menuItem3->Index = 2;
+				this->menuItem3->Index = 5;
 				this->menuItem3->Text = L"-";
 				// 
 				// select_all_m
 				// 
-				this->select_all_m->Index = 3;
+				this->select_all_m->Index = 6;
+				this->select_all_m->Shortcut = System::Windows::Forms::Shortcut::CtrlA;
 				this->select_all_m->Text = L"Select Al&l";
 				this->select_all_m->Click += gcnew System::EventHandler(this, &winmain::select_all_m_Click);
 				// 
 				// select_block_m
 				// 
-				this->select_block_m->Index = 4;
+				this->select_block_m->Index = 7;
 				this->select_block_m->Text = L"Select &Block...";
 				this->select_block_m->Click += gcnew System::EventHandler(this, &winmain::select_block_m_Click);
 				// 
 				// menuItem5
 				// 
-				this->menuItem5->Index = 5;
+				this->menuItem5->Index = 8;
 				this->menuItem5->Text = L"-";
 				// 
 				// copy_string_m
 				// 
-				this->copy_string_m->Index = 6;
+				this->copy_string_m->Index = 9;
+				this->copy_string_m->Shortcut = System::Windows::Forms::Shortcut::CtrlC;
 				this->copy_string_m->Text = L"&Copy String Selection";
 				this->copy_string_m->Click += gcnew System::EventHandler(this, &winmain::copy_string_m_Click);
 				// 
 				// copy_hex_m
 				// 
-				this->copy_hex_m->Index = 7;
+				this->copy_hex_m->Index = 10;
+				this->copy_hex_m->Shortcut = System::Windows::Forms::Shortcut::CtrlC;
 				this->copy_hex_m->Text = L"Copy &Hex Selection";
 				this->copy_hex_m->Click += gcnew System::EventHandler(this, &winmain::copy_hex_m_Click);
 				// 
 				// copy_offset_m
 				// 
-				this->copy_offset_m->Index = 8;
+				this->copy_offset_m->Index = 11;
 				this->copy_offset_m->Text = L"Copy &Offset";
 				this->copy_offset_m->Click += gcnew System::EventHandler(this, &winmain::copy_offset_m_Click);
 				// 
 				// copyas_m
 				// 
-				this->copyas_m->Index = 9;
+				this->copyas_m->Index = 12;
 				this->copyas_m->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(8) {
 					this->c_m, this->csharp_m,
 						this->python_m, this->java_m, this->pascal_m, this->perl_m, this->rust_m, this->vb_m
@@ -775,35 +817,39 @@ namespace hexasm {
 				// 
 				// menuItem9
 				// 
-				this->menuItem9->Index = 10;
+				this->menuItem9->Index = 13;
 				this->menuItem9->Text = L"-";
 				// 
 				// cut_hex_m
 				// 
-				this->cut_hex_m->Index = 11;
+				this->cut_hex_m->Index = 14;
+				this->cut_hex_m->Shortcut = System::Windows::Forms::Shortcut::CtrlX;
 				this->cut_hex_m->Text = L"C&ut Hex Selection";
 				this->cut_hex_m->Click += gcnew System::EventHandler(this, &winmain::cut_hex_m_Click);
 				// 
 				// cut_string_m
 				// 
-				this->cut_string_m->Index = 12;
+				this->cut_string_m->Index = 15;
+				this->cut_string_m->Shortcut = System::Windows::Forms::Shortcut::CtrlX;
 				this->cut_string_m->Text = L"Cut String Sel&ection";
 				this->cut_string_m->Click += gcnew System::EventHandler(this, &winmain::cut_string_m_Click);
 				// 
 				// seperator_m
 				// 
-				this->seperator_m->Index = 13;
+				this->seperator_m->Index = 16;
 				this->seperator_m->Text = L"-";
 				// 
 				// paste_string_m
 				// 
-				this->paste_string_m->Index = 14;
+				this->paste_string_m->Index = 17;
+				this->paste_string_m->Shortcut = System::Windows::Forms::Shortcut::CtrlV;
 				this->paste_string_m->Text = L"&Paste String";
 				this->paste_string_m->Click += gcnew System::EventHandler(this, &winmain::paste_string_m_Click);
 				// 
 				// paste_hex_m
 				// 
-				this->paste_hex_m->Index = 15;
+				this->paste_hex_m->Index = 18;
+				this->paste_hex_m->Shortcut = System::Windows::Forms::Shortcut::CtrlV;
 				this->paste_hex_m->Text = L"Paste He&x";
 				this->paste_hex_m->Click += gcnew System::EventHandler(this, &winmain::paste_hex_m_Click);
 				// 
@@ -819,6 +865,7 @@ namespace hexasm {
 				// find_m
 				// 
 				this->find_m->Index = 0;
+				this->find_m->Shortcut = System::Windows::Forms::Shortcut::CtrlF;
 				this->find_m->Text = L"&Find...";
 				this->find_m->Click += gcnew System::EventHandler(this, &winmain::find_m_Click);
 				// 
@@ -826,12 +873,14 @@ namespace hexasm {
 				// 
 				this->find_n_m->Enabled = false;
 				this->find_n_m->Index = 1;
+				this->find_n_m->Shortcut = System::Windows::Forms::Shortcut::F5;
 				this->find_n_m->Text = L"Find &Next";
 				// 
 				// find_p_m
 				// 
 				this->find_p_m->Enabled = false;
 				this->find_p_m->Index = 2;
+				this->find_p_m->Shortcut = System::Windows::Forms::Shortcut::F4;
 				this->find_p_m->Text = L"Find &Previous";
 				// 
 				// options_m
@@ -854,7 +903,7 @@ namespace hexasm {
 				// about_m
 				// 
 				this->about_m->Index = 0;
-				this->about_m->Text = L"&About...";
+				this->about_m->Text = L"&About hexasm...";
 				this->about_m->Click += gcnew System::EventHandler(this, &winmain::about_m_Click);
 				// 
 				// main_stat
@@ -931,7 +980,7 @@ namespace hexasm {
 					static_cast<System::Int32>(static_cast<System::Byte>(35)));
 				this->tslbl_modified->ForeColor = System::Drawing::Color::WhiteSmoke;
 				this->tslbl_modified->Name = L"tslbl_modified";
-				this->tslbl_modified->Size = System::Drawing::Size(489, 17);
+				this->tslbl_modified->Size = System::Drawing::Size(505, 17);
 				this->tslbl_modified->Spring = true;
 				this->tslbl_modified->Text = L"* Modified *";
 				this->tslbl_modified->ToolTipText = L"Modified document";
@@ -944,7 +993,7 @@ namespace hexasm {
 				this->tslbl_textmode->ForeColor = System::Drawing::Color::WhiteSmoke;
 				this->tslbl_textmode->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
 				this->tslbl_textmode->Name = L"tslbl_textmode";
-				this->tslbl_textmode->Size = System::Drawing::Size(489, 17);
+				this->tslbl_textmode->Size = System::Drawing::Size(505, 17);
 				this->tslbl_textmode->Spring = true;
 				this->tslbl_textmode->Text = L"Overwrite";
 				this->tslbl_textmode->ToolTipText = L"Text mode for the current document";
@@ -1133,8 +1182,8 @@ namespace hexasm {
 				this->lv_main_hash->HeaderStyle = System::Windows::Forms::ColumnHeaderStyle::Nonclickable;
 				this->lv_main_hash->HideSelection = false;
 				this->lv_main_hash->Items->AddRange(gcnew cli::array< System::Windows::Forms::ListViewItem^  >(6) {
-					listViewItem1, listViewItem2,
-						listViewItem3, listViewItem4, listViewItem5, listViewItem6
+					listViewItem7, listViewItem8,
+						listViewItem9, listViewItem10, listViewItem11, listViewItem12
 				});
 				this->lv_main_hash->Location = System::Drawing::Point(0, 0);
 				this->lv_main_hash->MultiSelect = false;
@@ -1672,23 +1721,43 @@ namespace hexasm {
 				// 
 				// main_document_context_menu
 				// 
-				this->main_document_context_menu->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(16) {
-					this->jmp_m_ctx,
-						this->jmp_selection_ctx, this->menuItem7, this->select_all_ctx, this->select_block_ctx, this->menuItem1, this->copy_string_ctx,
-						this->copy_hex_ctx, this->copy_offset_ctx, this->copyas_ctx, this->menuItem12, this->cut_hex_ctx, this->cut_string_ctx, this->menuItem2,
-						this->paste_string_ctx, this->paste_hex_ctx
+				this->main_document_context_menu->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(19) {
+					this->undo_m_ctx,
+						this->redo_m_ctx, this->menuItem15, this->jmp_m_ctx, this->jmp_selection_ctx, this->menuItem7, this->select_all_ctx, this->select_block_ctx,
+						this->menuItem1, this->copy_string_ctx, this->copy_hex_ctx, this->copy_offset_ctx, this->copyas_ctx, this->menuItem12, this->cut_hex_ctx,
+						this->cut_string_ctx, this->menuItem2, this->paste_string_ctx, this->paste_hex_ctx
 				});
 				this->main_document_context_menu->Popup += gcnew System::EventHandler(this, &winmain::main_document_context_menu_Popup);
 				// 
+				// undo_m_ctx
+				// 
+				this->undo_m_ctx->Index = 0;
+				this->undo_m_ctx->Shortcut = System::Windows::Forms::Shortcut::CtrlZ;
+				this->undo_m_ctx->Text = L"&Undo";
+				this->undo_m_ctx->Click += gcnew System::EventHandler(this, &winmain::undo_m_Click);
+				// 
+				// redo_m_ctx
+				// 
+				this->redo_m_ctx->Index = 1;
+				this->redo_m_ctx->Shortcut = System::Windows::Forms::Shortcut::CtrlY;
+				this->redo_m_ctx->Text = L"&Redo";
+				this->redo_m_ctx->Click += gcnew System::EventHandler(this, &winmain::redo_m_Click);
+				// 
+				// menuItem15
+				// 
+				this->menuItem15->Index = 2;
+				this->menuItem15->Text = L"-";
+				// 
 				// jmp_m_ctx
 				// 
-				this->jmp_m_ctx->Index = 0;
+				this->jmp_m_ctx->Index = 3;
+				this->jmp_m_ctx->Shortcut = System::Windows::Forms::Shortcut::CtrlJ;
 				this->jmp_m_ctx->Text = L"&Jump To Address...";
 				this->jmp_m_ctx->Click += gcnew System::EventHandler(this, &winmain::tslbl_offset_DoubleClick);
 				// 
 				// jmp_selection_ctx
 				// 
-				this->jmp_selection_ctx->Index = 1;
+				this->jmp_selection_ctx->Index = 4;
 				this->jmp_selection_ctx->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(3) {
 					this->word_ctx, this->dword_ctx,
 						this->qword_ctx
@@ -1716,47 +1785,50 @@ namespace hexasm {
 				// 
 				// menuItem7
 				// 
-				this->menuItem7->Index = 2;
+				this->menuItem7->Index = 5;
 				this->menuItem7->Text = L"-";
 				// 
 				// select_all_ctx
 				// 
-				this->select_all_ctx->Index = 3;
+				this->select_all_ctx->Index = 6;
+				this->select_all_ctx->Shortcut = System::Windows::Forms::Shortcut::CtrlA;
 				this->select_all_ctx->Text = L"Select Al&l";
 				this->select_all_ctx->Click += gcnew System::EventHandler(this, &winmain::select_all_m_Click);
 				// 
 				// select_block_ctx
 				// 
-				this->select_block_ctx->Index = 4;
+				this->select_block_ctx->Index = 7;
 				this->select_block_ctx->Text = L"Select &Block...";
 				this->select_block_ctx->Click += gcnew System::EventHandler(this, &winmain::select_block_m_Click);
 				// 
 				// menuItem1
 				// 
-				this->menuItem1->Index = 5;
+				this->menuItem1->Index = 8;
 				this->menuItem1->Text = L"-";
 				// 
 				// copy_string_ctx
 				// 
-				this->copy_string_ctx->Index = 6;
+				this->copy_string_ctx->Index = 9;
+				this->copy_string_ctx->Shortcut = System::Windows::Forms::Shortcut::CtrlC;
 				this->copy_string_ctx->Text = L"Copy &String Selection";
 				this->copy_string_ctx->Click += gcnew System::EventHandler(this, &winmain::copy_string_m_Click);
 				// 
 				// copy_hex_ctx
 				// 
-				this->copy_hex_ctx->Index = 7;
+				this->copy_hex_ctx->Index = 10;
+				this->copy_hex_ctx->Shortcut = System::Windows::Forms::Shortcut::CtrlC;
 				this->copy_hex_ctx->Text = L"Copy H&ex Selection";
 				this->copy_hex_ctx->Click += gcnew System::EventHandler(this, &winmain::copy_hex_m_Click);
 				// 
 				// copy_offset_ctx
 				// 
-				this->copy_offset_ctx->Index = 8;
+				this->copy_offset_ctx->Index = 11;
 				this->copy_offset_ctx->Text = L"Copy &Offset";
 				this->copy_offset_ctx->Click += gcnew System::EventHandler(this, &winmain::copy_offset_m_Click);
 				// 
 				// copyas_ctx
 				// 
-				this->copyas_ctx->Index = 9;
+				this->copyas_ctx->Index = 12;
 				this->copyas_ctx->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(8) {
 					this->cpy_cpp_m_ctx, this->cpy_csharp_m_ctx,
 						this->cpy_python_m_ctx, this->cpy_java_m_ctx, this->cpy_pascal_m_ctx, this->cpy_perl_m_ctx, this->cpy_rust_m_ctx, this->cpy_vb_m_ctx
@@ -1813,35 +1885,39 @@ namespace hexasm {
 				// 
 				// menuItem12
 				// 
-				this->menuItem12->Index = 10;
+				this->menuItem12->Index = 13;
 				this->menuItem12->Text = L"-";
 				// 
 				// cut_hex_ctx
 				// 
-				this->cut_hex_ctx->Index = 11;
+				this->cut_hex_ctx->Index = 14;
+				this->cut_hex_ctx->Shortcut = System::Windows::Forms::Shortcut::CtrlX;
 				this->cut_hex_ctx->Text = L"&Cut Hex Selection";
 				this->cut_hex_ctx->Click += gcnew System::EventHandler(this, &winmain::cut_hex_m_Click);
 				// 
 				// cut_string_ctx
 				// 
-				this->cut_string_ctx->Index = 12;
+				this->cut_string_ctx->Index = 15;
+				this->cut_string_ctx->Shortcut = System::Windows::Forms::Shortcut::CtrlX;
 				this->cut_string_ctx->Text = L"Cut String Sel&ection";
 				this->cut_string_ctx->Click += gcnew System::EventHandler(this, &winmain::cut_string_m_Click);
 				// 
 				// menuItem2
 				// 
-				this->menuItem2->Index = 13;
+				this->menuItem2->Index = 16;
 				this->menuItem2->Text = L"-";
 				// 
 				// paste_string_ctx
 				// 
-				this->paste_string_ctx->Index = 14;
+				this->paste_string_ctx->Index = 17;
+				this->paste_string_ctx->Shortcut = System::Windows::Forms::Shortcut::CtrlV;
 				this->paste_string_ctx->Text = L"&Paste String";
 				this->paste_string_ctx->Click += gcnew System::EventHandler(this, &winmain::paste_string_m_Click);
 				// 
 				// paste_hex_ctx
 				// 
-				this->paste_hex_ctx->Index = 15;
+				this->paste_hex_ctx->Index = 18;
+				this->paste_hex_ctx->Shortcut = System::Windows::Forms::Shortcut::CtrlV;
 				this->paste_hex_ctx->Text = L"Paste &Hex";
 				this->paste_hex_ctx->Click += gcnew System::EventHandler(this, &winmain::paste_hex_m_Click);
 				// 
@@ -2531,13 +2607,18 @@ namespace hexasm {
 			main_vist->SetImage(exit_m, global::img_exit);
 			main_vist->SetImage(settings_m, global::img_settings_cog);
 			main_vist->SetImage(about_m, global::img_help_information);
-			main_vist->SetImage(find_m, global::img_search);
-			main_vist->SetImage(find_n_m, global::img_search_next);
-			main_vist->SetImage(find_p_m, global::img_search_back);
 
 			progress_window_->update_progress("", 90);
 
 			/* EDIT menus */
+
+			main_vist->SetImage(undo_m, global::img_undo);
+			main_vist->SetImage(undo_m_ctx, global::img_undo);
+			main_vist->SetImage(redo_m, global::img_redo);
+			main_vist->SetImage(redo_m_ctx, global::img_redo);
+			main_vist->SetImage(find_m, global::img_search);
+			main_vist->SetImage(find_n_m, global::img_search_next);
+			main_vist->SetImage(find_p_m, global::img_search_back);
 			main_vist->SetImage(jmp_m_ctx, global::img_edit_jmp);
 			main_vist->SetImage(jump_m, global::img_edit_jmp);
 			main_vist->SetImage(word_ctx, global::img_word);
@@ -4193,7 +4274,6 @@ namespace hexasm {
 			bool is_document_active = tab_main->TabPages->Count > 0 ? true : false;
 
 			jump_m->Enabled = is_document_active;
-
 			copy_string_m->Enabled = is_document_active;
 			copy_hex_m->Enabled = is_document_active;
 			copyas_m->Enabled = is_document_active;
@@ -4204,6 +4284,9 @@ namespace hexasm {
 			cut_string_m->Enabled = is_document_active;
 			select_block_m->Enabled = is_document_active;
 			copy_offset_m->Enabled = is_document_active;
+			undo_m->Enabled = is_document_active;
+			redo_m->Enabled = is_document_active;
+
 
 			if (!is_document_active)
 				return;
@@ -4219,6 +4302,12 @@ namespace hexasm {
 
 			cut_hex_m->Enabled = (is_document_selection && control_h->InsertActive);
 			cut_string_m->Enabled = (is_document_selection && control_h->InsertActive);
+
+			bool can_undo = control_h->CanUndo();
+			bool can_redo = control_h->CanRedo();
+
+			undo_m->Enabled = can_undo;
+			redo_m->Enabled = can_redo;
 
 			if (control_h->SelectionStart > -1) {
 				paste_string_m->Enabled = true;
@@ -4247,6 +4336,12 @@ namespace hexasm {
 
 			cut_hex_ctx->Enabled = (control_h->InsertActive && is_document_selection);
 			cut_string_ctx->Enabled = (control_h->InsertActive && is_document_selection);
+
+			bool can_undo = control_h->CanUndo();
+			bool can_redo = control_h->CanRedo();
+
+			undo_m_ctx->Enabled = can_undo;
+			redo_m_ctx->Enabled = can_redo;
 
 			do_jump_menu_update();
 		}
@@ -4876,7 +4971,7 @@ namespace hexasm {
 			control_g->context_lock = true;
 		}
 
-		private: System::Void main_graph_ctx_Collapse(System::Object^ sender, System::EventArgs^ e) {
+		private: System::Void __clrcall main_graph_ctx_Collapse(System::Object^ sender, System::EventArgs^ e) {
 
 			if (!global::graph_union_instances || !global::hex_union_instances)
 				return;
@@ -4887,14 +4982,37 @@ namespace hexasm {
 			control_g->context_lock = false;
 		}
 
-		private: System::Void find_m_Click(System::Object^ sender, System::EventArgs^ e) {
+		private: System::Void __clrcall find_m_Click(System::Object^ sender, System::EventArgs^ e) {
 			
 			do_find_dialog();
 		}
+
+		private: __declspec(noinline) System::Void __clrcall undo_m_Click(System::Object^ sender, System::EventArgs^ e) {
+
+			if (!tab_main->TabPages->Count)
+				return;
+
+			auto% control_h = global::hex_union_instances[current_document_index];
+
+			if (control_h->CanUndo())
+				control_h->Undo();
+		}
+
+		private: __declspec(noinline) System::Void redo_m_Click(System::Object^ sender, System::EventArgs^ e) {
+
+			if (!tab_main->TabPages->Count)
+				return;
+
+			auto% control_h = global::hex_union_instances[current_document_index];
+
+			if (control_h->CanRedo())
+				control_h->Redo();
+		}
+
 #pragma endregion
 
 
-	};
+};
 }
 
 #endif

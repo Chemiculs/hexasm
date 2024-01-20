@@ -12,6 +12,8 @@ namespace hexasm {
 		#define WIN32_LEAN_AND_MEAN
 		#include <Windows.h>
 
+#pragma pack(push, 1)
+
 		typedef struct pe_file_information {
 
 			IMAGE_DOS_HEADER header_dos;
@@ -60,6 +62,8 @@ namespace hexasm {
 
 		};
 
+#pragma pack(pop)
+
 		class pe_file { // check machine architecture to determine if 32-bit or 64 and use appropriate structures
 
 		private:
@@ -77,12 +81,12 @@ namespace hexasm {
 
 			public: std::vector<executable_section_code>* section_decompilations_;
 
-			static inline IMAGE_DOS_HEADER __fastcall parse_dos_header(uint8_t* data) {
+			static __declspec(noinline) IMAGE_DOS_HEADER __fastcall parse_dos_header(uint8_t* data) {
 
 				return *reinterpret_cast<PIMAGE_DOS_HEADER>(data);
 			}
 
-			static inline cs_mode parse_architecture_t(uint8_t* data) {
+			static __declspec(noinline) cs_mode __fastcall parse_architecture_t(uint8_t* data) {
 
 				auto header_dos = *reinterpret_cast<PIMAGE_DOS_HEADER>(data);
 
@@ -108,17 +112,17 @@ namespace hexasm {
 				}
 			}
 
-			static inline IMAGE_NT_HEADERS64 __fastcall parse_nt_headers64(uint8_t* data) {
+			static __declspec(noinline) IMAGE_NT_HEADERS64 __fastcall parse_nt_headers64(uint8_t* data) noexcept {
 
 				return *reinterpret_cast<PIMAGE_NT_HEADERS64>(data + reinterpret_cast<PIMAGE_DOS_HEADER>(data)->e_lfanew);
 			}
 
-			static inline IMAGE_NT_HEADERS32 __fastcall parse_nt_headers32(uint8_t* data) {
+			static __declspec(noinline) IMAGE_NT_HEADERS32 __fastcall parse_nt_headers32(uint8_t* data) noexcept {
 
 				return *reinterpret_cast<PIMAGE_NT_HEADERS32>(data + reinterpret_cast<PIMAGE_DOS_HEADER>(data)->e_lfanew);
 			}
 
-			static inline std::vector<IMAGE_SECTION_HEADER> __fastcall parse_sections(uint8_t* data, cs_mode mode) {
+			static __declspec(noinline) std::vector<IMAGE_SECTION_HEADER> __fastcall parse_sections(uint8_t* data, cs_mode mode) noexcept {
 
 				std::vector<IMAGE_SECTION_HEADER> dir_list{};
 
@@ -146,7 +150,7 @@ namespace hexasm {
 				return dir_list;
 			}
 
-			inline std::vector<executable_section_subroutine> __fastcall decompile_image_section(uint8_t* data, IMAGE_SECTION_HEADER section_header) {
+			__declspec(noinline) std::vector<executable_section_subroutine> __fastcall decompile_image_section(uint8_t* data, IMAGE_SECTION_HEADER section_header) {
 				
 				auto section_start_rva = section_header.PointerToRawData + data;
 
@@ -237,7 +241,7 @@ namespace hexasm {
 
 #pragma region Ctor / Dtor
 
-			inline __fastcall pe_file(uint8_t* raw_file, size_t size) : raw_data_(raw_file), raw_size_(size) {
+			__declspec(noinline) __fastcall pe_file(uint8_t* raw_file, size_t size) : raw_data_(raw_file), raw_size_(size) {
 
 				if (!raw_file || !size) {
 					is_valid_pe_ = false;
@@ -321,6 +325,5 @@ namespace hexasm {
 
 	}
 }
-
 
 #endif

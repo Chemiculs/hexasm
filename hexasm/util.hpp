@@ -18,7 +18,7 @@ static ref class util {
 	
 public:
 
-	static inline array<find_data_entry^>^ find_all(HexBox^% control_h, FindOptions^% options, bool* cancel) {
+	static inline array<find_data_entry^>^ __clrcall find_all(HexBox^% control_h, FindOptions^% options, bool* cancel) {
 
 		if (!control_h->ByteProvider->Length)
 			return nullptr;
@@ -48,7 +48,7 @@ public:
 		return _return->ToArray();
 	}
 
-	static inline bool is_theme_dark(System::IntPtr hWnd)
+	static inline bool __clrcall is_theme_dark(System::IntPtr hWnd)
 	{
 		System::IntPtr hdc = GetDC(hWnd);
 		unsigned long pixelColor = GetPixel(hdc, 0, 0);

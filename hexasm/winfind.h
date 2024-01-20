@@ -1217,7 +1217,7 @@ namespace hexasm {
 		return nullptr;
 	}
 
-	private: System::Void btn_search_s_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void __clrcall btn_search_s_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		auto aob_scan_object = aob_string_parse();
 
@@ -1239,12 +1239,12 @@ namespace hexasm {
 		DialogResult = System::Windows::Forms::DialogResult::OK;
 	}
 
-	private: System::Void cb_bit_width_f_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void __clrcall cb_bit_width_f_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 
 		nud_float->DecimalPlaces = cb_bit_width_f->SelectedIndex ? 18 : 9;
 	}
 
-	private: System::Void cb_bit_width_i_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void __clrcall cb_bit_width_i_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 
 		switch (cb_bit_width_i->SelectedIndex) {
 			case 0: {
@@ -1295,12 +1295,12 @@ namespace hexasm {
 		}
 	}
 
-	private: System::Void cb_hex_i_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void __clrcall cb_hex_i_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
 		nud_integer->Hexadecimal = cb_hex_i->Checked;
 	}
 
-	private: System::Void btn_search_i_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void __clrcall btn_search_i_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		if (nud_integer->Value > UInt64::MaxValue || nud_integer->Value < Int64::MinValue) { // we are only supporting 8-64 bit integers, likewise these are the bounds
 
