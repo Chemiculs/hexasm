@@ -2,7 +2,7 @@
 
 ![main](img/main.png)
 
-###                 A Clean Binary File Editor written in C++ / CLI with many feature, which include:
+###                 A Clean Binary File Editor written in C++ / CLI with many features, which include:
 
 *  Disassembly for many Architectures (thanks to the [Capstone Project](https://github.com/capstone-engine/capstone) !)
 *  Complete Data-Interpreter
@@ -20,6 +20,13 @@
 *  Advanced user-action logging stack to preserve data-integrity
 
 ![undo_redo-stack](img/undo_redo_stack_scoped.png)
+
+
+# This software is in Beta 
+
+## This software has not undergone thorough enough testing to be considered stable nor bug-free. 
+
+### Please contact me or create a request if you encounter bugs either in the compiled application, or the source. Thank you
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
