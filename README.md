@@ -22,7 +22,7 @@
 ![undo_redo-stack](img/undo_redo_stack_scoped.png)
 
 
-# This software is in Beta 
+# !This software is in Beta!
 
 ## This software has not undergone thorough enough testing to be considered stable nor bug-free. 
 
