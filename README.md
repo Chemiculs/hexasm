@@ -21,7 +21,7 @@
 
 ![undo_redo-stack](img/undo_redo_stack_scoped.png)
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # To-Do's / In Progress
 
@@ -37,9 +37,11 @@
 
 * "wintest.h" is as suggested by the title, a testing environment for another feature being worked on which will allow for the creation of Control-Flow graphs from PE files. The subroutine detections "work" (kind of) but are not quite where i wish them to be and while they are similar to IDA's subroutine breakdown, they do not match, nor do they produce a satisfying result.
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Credits
+
+* Credits for getting Icons working with the native OS menubar (VistaMenu) goes to [wyday](https://wyday.com/vistamenu/)
 
 * Thanks to Pkcs11Admin for their old Be.HexEditor project which i extended the functionality of and changed [Be.HexEditor](https://github.com/Pkcs11Admin/Be.HexEditor)
 
