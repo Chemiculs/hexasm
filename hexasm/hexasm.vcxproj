@@ -271,6 +271,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\GENTLEFACE_WIREFRAME_ICON_LICENSE.txt" />
+    <Text Include="..\VISTAMENU_LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
