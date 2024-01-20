@@ -12,7 +12,7 @@
 
 ![data_graph](img/hover_graph.png)
 
-*  Fully-featured Hex Editing control
+*  Fully-featured Hex Editing control (Based on [Be.HexEditor](https://github.com/Pkcs11Admin/Be.HexEditor))
 
 ![context_hex](img/context_hex.png)
 
@@ -23,6 +23,10 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # To-Do's / In Progress
+
+* SEVERE need for C# code cleanup in "HexBox.cs" - I do not like to write C#, and without further excuses, lots of my appended code here got sloppy looking, or needs optimization.
+
+* Finish Implementing IByteProvider Interface inside of Be.Windows.Forms.HexBox class "DynamicProcessByteProvider.cs" to allow for Reading && Editing the memory of other processes by the hex editor control
 
 * I am writing a scripting language for hexasm right now which will allow synchronized data bindings to files and processes, this will make user-defined file format diagrams possible, unfortunately requires writing a VM in my case so this may take a month or 2. If you have experience with this sort of thing, feel free to contact me.
 
