@@ -1,5 +1,7 @@
 #                                                                                                       hexasm
 
+![main](img/main.png)
+
 ###                 A Clean Binary File Editor written in C++ / CLI with many feature, which include:
 
 *  Disassembly for many Architectures (thanks to the [Capstone Project](https://github.com/capstone-engine/capstone) !)
@@ -7,13 +9,9 @@
 
 ![data_interpreter](img/type_view_scoped.png)
 
-![data_interpreter](img/type_context.png)
-
 *  Interactable detailed graph view of the file.
 
 ![data_graph](img/graph_view_scoped.png)
-
-![data_graph](img/hover_graph.png)
 
 *  Fully-featured Hex Editing control (Based on [Be.HexEditor](https://github.com/Pkcs11Admin/Be.HexEditor))
 
@@ -22,8 +20,6 @@
 *  Advanced user-action logging stack to preserve data-integrity
 
 ![undo_redo-stack](img/undo_redo_stack_scoped.png)
-
-![undo_redo-stack](img/undo_redo_stack.png)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
