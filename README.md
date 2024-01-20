@@ -1,6 +1,10 @@
 #                                                                                                       hexasm
 
-###                 A fully-featured hex editor for windows written in C++ / CLI , featuring disassembly (thanks to capstone), complete data-interpreter and interactable detailed graph view of the file.
+###                 A Clean Binary File Editor written in C++ / CLI with many feature, which include:
+
+*  disassembly for many architectures (thanks to capstone)
+*  complete data-interpreter
+*  interactable detailed graph view of the file.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
