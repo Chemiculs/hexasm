@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\static">
+      <UniqueIdentifier>{7321211a-4f12-4004-ad2c-35bf2554ae5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\instance">
+      <UniqueIdentifier>{06095d4e-1750-4875-992d-6d9bf40aeeed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui">
+      <UniqueIdentifier>{554ae607-1d3a-4d0f-a871-f5b66445b378}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extern">
+      <UniqueIdentifier>{443f6a33-0f9d-424c-908c-52b07bc673ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extern\capstone">
+      <UniqueIdentifier>{ed7e616d-889b-427c-a30f-86c45d838dcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extern\capstone\32">
+      <UniqueIdentifier>{5bf0ef9f-3866-46fc-a515-b56cde7e552b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extern\capstone\64">
+      <UniqueIdentifier>{2fa2ff84-fca7-4169-9443-6e65b1adb4a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documents">
+      <UniqueIdentifier>{3f9f7cdf-acdc-4103-a0ae-56f1efcac250}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource\resource.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="winmain.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="util.hpp">
+      <Filter>Header Files\static</Filter>
+    </ClInclude>
+    <ClInclude Include="global.hpp">
+      <Filter>Header Files\instance</Filter>
+    </ClInclude>
+    <ClInclude Include="interop.hpp">
+      <Filter>Header Files\static</Filter>
+    </ClInclude>
+    <ClInclude Include="def.hpp">
+      <Filter>Header Files\static</Filter>
+    </ClInclude>
+    <ClInclude Include="winjump.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListViewEx.hpp">
+      <Filter>Header Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\arm.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\arm64.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\capstone.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\evm.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\m680x.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\m68k.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\mips.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\platform.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\ppc.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\sparc.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\systemz.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\tms320c64x.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\x86.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone32\include\capstone\xcore.h">
+      <Filter>extern\capstone\32</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\arm.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\arm64.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\capstone.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\evm.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\m680x.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\m68k.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\mips.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\platform.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\ppc.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\sparc.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\systemz.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\tms320c64x.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\x86.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\capstone64\include\capstone\xcore.h">
+      <Filter>extern\capstone\64</Filter>
+    </ClInclude>
+    <ClInclude Include="native.hpp">
+      <Filter>Header Files\static</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm.hpp">
+      <Filter>Header Files\static</Filter>
+    </ClInclude>
+    <ClInclude Include="winabout.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="winprogress.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="winhexstr.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="winblocksel.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBoxBaseExtension.hpp">
+      <Filter>Header Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="hash.hpp">
+      <Filter>Header Files\static</Filter>
+    </ClInclude>
+    <ClInclude Include="DataGraph.hpp">
+      <Filter>Header Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pe.hpp">
+      <Filter>Header Files\instance</Filter>
+    </ClInclude>
+    <ClInclude Include="wintest.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="winfind.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resource.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="jump.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Pictures\Programming Icons\minimalhexasm.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\GENTLEFACE_WIREFRAME_ICON_LICENSE.txt">
+      <Filter>Documents</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

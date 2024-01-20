@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{A7CC6D32-90A9-49C9-820B-59782C22E355}</ProjectGuid>
+    <EnableManagedPackageReferenceSupport>true</EnableManagedPackageReferenceSupport>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>hexasm</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\include\boost_1_82_0;C:\include\cryptlib\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\include\cryptopp\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\include\boost_1_82_0;C:\include\cryptopp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\laneg\source\repos\hexasm\hexasm\extern;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>false</VcpkgEnabled>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\include\boost_1_82_0;C:\include\zydis\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalLibraryDirectories>C:\include\boost_1_82_0\libs;C:\include\zydis\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <SDLCheck>false</SDLCheck>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <EntryPointSymbol>main</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>true</OmitFramePointers>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalIncludeDirectories>C:\include\cryptopp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\laneg\source\repos\hexasm\hexasm\extern;C:\include\cryptopp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <AssemblyDebug>false</AssemblyDebug>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="Be.Windows.Forms.HexBox">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2022\Projects\Be.HexEditor-1.6.0\sources\Be.Windows.Forms.HexBox\bin\Release\Be.Windows.Forms.HexBox.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VistaMenu">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2022\Projects\VistaMenu\Control\bin\Release\VistaMenu.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DataGraph.hpp" />
+    <ClInclude Include="def.hpp" />
+    <ClInclude Include="disasm.hpp" />
+    <ClInclude Include="extern\capstone32\include\capstone\arm.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\arm64.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\capstone.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\evm.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\m680x.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\m68k.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\mips.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\platform.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\ppc.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\sparc.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\systemz.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\tms320c64x.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\x86.h" />
+    <ClInclude Include="extern\capstone32\include\capstone\xcore.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\arm.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\arm64.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\capstone.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\evm.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\m680x.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\m68k.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\mips.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\platform.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\ppc.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\sparc.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\systemz.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\tms320c64x.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\x86.h" />
+    <ClInclude Include="extern\capstone64\include\capstone\xcore.h" />
+    <ClInclude Include="global.hpp" />
+    <ClInclude Include="hash.hpp" />
+    <ClInclude Include="interop.hpp" />
+    <ClInclude Include="ListViewEx.hpp" />
+    <ClInclude Include="native.hpp" />
+    <ClInclude Include="pe.hpp" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource\resource.hpp" />
+    <ClInclude Include="TextBoxBaseExtension.hpp" />
+    <ClInclude Include="util.hpp" />
+    <ClInclude Include="winabout.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="winblocksel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="winfind.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="winhexstr.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="winmain.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="winjump.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="winprogress.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="wintest.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resource.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winabout.resx">
+      <DependentUpon>winabout.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winblocksel.resx">
+      <DependentUpon>winblocksel.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winfind.resx">
+      <DependentUpon>winfind.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winhexstr.resx">
+      <DependentUpon>winhexstr.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winmain.resx">
+      <DependentUpon>winmain.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winjump.resx">
+      <DependentUpon>winjump.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winprogress.resx">
+      <DependentUpon>winprogress.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wintest.resx">
+      <DependentUpon>wintest.h</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Pictures\Programming Icons\minimalhexasm.ico" />
+    <Image Include="arrow_right.png" />
+    <Image Include="jump.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\GENTLEFACE_WIREFRAME_ICON_LICENSE.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
