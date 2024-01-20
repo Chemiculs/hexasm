@@ -8,7 +8,7 @@
 
 # Credits
 
-* Thanks to Pkcs11Admin for their old Be.HexEditor project which i extended the functionality of and changed [Be.HexEditor]([https://github.com/capstone-engine/capstone](https://github.com/Pkcs11Admin/Be.HexEditor))
+* Thanks to Pkcs11Admin for their old Be.HexEditor project which i extended the functionality of and changed [Be.HexEditor](https://github.com/Pkcs11Admin/Be.HexEditor)
 
 * Thank you to the [Capstone Project](https://github.com/capstone-engine/capstone) for the amazing work
 
