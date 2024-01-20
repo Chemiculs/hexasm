@@ -2,11 +2,26 @@
 
 ###                 A Clean Binary File Editor written in C++ / CLI with many feature, which include:
 
-*  disassembly for many architectures (thanks to capstone)
-*  complete data-interpreter
-*  interactable detailed graph view of the file.
+*  Disassembly for many Architectures (thanks to the [Capstone Project](https://github.com/capstone-engine/capstone) !)
+*  Complete Data-Interpreter
+
+![data_interpreter](img/type_context.png)
   
+
+*  Interactable detailed graph view of the file.
+
+![data_graph](img/hover_graph.png)
+
+*  Fully-featured Hex Editing control
+
+![context_hex](img/context_hex.png)
+
+*  Advanced user-action logging stack to preserve data-integrity
+
+![undo_redo-stack](img/undo_redo_stack.png)
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # To-Do's / In Progress
 
 * I am writing a scripting language for hexasm right now which will allow synchronized data bindings to files and processes, this will make user-defined file format diagrams possible, unfortunately requires writing a VM in my case so this may take a month or 2. If you have experience with this sort of thing, feel free to contact me.
