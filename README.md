@@ -1,6 +1,6 @@
 #                                                                                                       hexasm
 
-##                 A fully-featured hex editor for windows written in C++ / CLI , featuring disassembly (thanks to capstone), complete data-interpreter and interactable detailed graph view of the file.
+###                 A fully-featured hex editor for windows written in C++ / CLI , featuring disassembly (thanks to capstone), complete data-interpreter and interactable detailed graph view of the file.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
